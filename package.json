@@ -1,0 +1,28 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "tutorial on node+angular",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "supervisor script.js"
+  },
+  "keywords": [
+    "tutorial",
+    "image",
+    "node",
+    "angular"
+   ],
+  "author": "qalekop",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.11.0",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*",
+    "exif-parser": "*",
+    "googlemaps": "*",
+    "async": "*"
+  }
+}

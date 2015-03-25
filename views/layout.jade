@@ -1,0 +1,13 @@
+doctype
+html
+  head
+    title #{title}
+    link(rel='stylesheet', href='/assets/css/gallery.css')
+  body
+    header
+      h1 #{title}
+    .container
+      .main-content
+        block content
+      footer
+        p Running on node with Express, Jade and Stylus
