@@ -1,4 +1,4 @@
 li
-  figure
+  figure(ng-click='imageName("' + image.name + '")')
     img(src="/assets/gallery/" + image.name, alt=image.endroit, title=image.endroit, width=image.width, height=image.height)
     figcaption #{image.endroit}

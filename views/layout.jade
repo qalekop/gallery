@@ -3,11 +3,15 @@ html
   head
     title #{title}
     link(rel='stylesheet', href='/assets/css/gallery.css')
-  body
+    script(src='/assets/js/angular.min.js')
+    script(src='/assets/js/gallery.js')
+  body(ng-app)
     header
       h1 #{title}
-    .container
+    .container(ng-controller='GalleryController')
       .main-content
         block content
       footer
         p Running on node with Express, Jade and Stylus
+      .map-container
+        block map-content
