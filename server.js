@@ -60,3 +60,8 @@ async.each(images
 app.get('/', function (req, res) {
   res.render('index', { title: 'Gallery', images: images });
 });
+
+app.get('/image/:id', function(req, res) {
+  console.log('*** request for ' + req.params.id);
+  res.send("OK");
+});
