@@ -2,8 +2,8 @@
 
 var galleryApp = angular.module("Gallery", []);
 
-galleryApp.controller('GalleryController', ['$scope', function($scope) {
+galleryApp.controller('GalleryController', function($scope) {
     $scope.imageName = function(name) {
 		$scope.name = name;
     };
-}]);
+});

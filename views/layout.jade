@@ -1,17 +1,17 @@
 doctype
-html
+html(ng-app='Gallery')
   head
     title #{title}
     link(rel='stylesheet', href='/assets/css/gallery.css')
     script(src='/assets/js/angular.min.js')
     script(src='/assets/js/gallery.js')
-  body(ng-app)
+  body
     header
       h1 #{title}
     .container(ng-controller='GalleryController')
       .main-content
         block content
       footer
-        p Running on node with Express, Jade and Stylus
+        p Running on node with Express, Jade, Stylus {{'and AngularJS'}}
       .map-container
         block map-content
