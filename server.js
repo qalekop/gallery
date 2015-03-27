@@ -4,7 +4,8 @@ var express = require('express')
   , gm = require('googlemaps')
   , async = require('async')
   , stylus = require('stylus')
-  , nib = require('nib');
+  , nib = require('nib')
+  ;
 
 var app = express();
 function compile(str, path) {
@@ -30,31 +31,30 @@ var file
     , width
     , height;
 
-for (var i=0; i<files.length; i++) {
-  file = files[i]
+files.forEach(function(file, i) {
   exif = parser.create(fs.readFileSync(fnPrefix + '/' + file)).parse();
   height = exif.imageSize.height;
   width = exif.imageSize.width;
   var image = {'name': file, 'endroit': 'Quelque part', 'width': width, 'height': height};
   images[i] = image;
   if (exif.tags.GPSVersionID) {
-	  image.waitForName = true;
-	  image.latitude = exif.tags.GPSLatitude; image.longitude = exif.tags.GPSLongitude;
+    image.waitForName = true;
+    image.latitude = exif.tags.GPSLatitude; image.longitude = exif.tags.GPSLongitude;
   }
-}
+});
 
 async.each(images
-		, function(item, callback) {
-			if (item.waitForName) {
-				gm.reverseGeocode(item.latitude + ',' + item.longitude, function(err, data){item.endroit = data.results[2].formatted_address; callback()});
-			} else {
-				callback();
-			}
-		}
-		, function(err) {
-			console.log('over');
-			app.listen(3000, function() {console.log('listening...');});
-		}
+  , function(item, callback) {
+    if (item.waitForName) {
+      gm.reverseGeocode(item.latitude + ',' + item.longitude, function(err, data){item.endroit = data.results[2].formatted_address; callback()});
+    } else {
+      callback();
+    }
+  }
+  , function(err) {
+    console.log('over');
+    app.listen(3000, function() {console.log('listening...');});
+  }
 );
 /////////////////////////////
 app.get('/', function (req, res) {
@@ -62,6 +62,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/image/:id', function(req, res) {
-  console.log('*** request for ' + req.params.id);
-  res.send("OK");
+  var id = req.params.id;
+  console.log('*** request for ' + id);
+  var img = images.filter(function(image, i){ return image.name == id});
+  if (img.length == 1) {
+	var im = img[0];
+	console.log('Found: ' + im.latitude + '/' + im.longitude);
+	res.json({latitude: im.latitude, longitude: im.longitude});
+  } else {
+	console.log('Not found');
+	res.status(404).json({error: 'Not found'});
+  }
 });

@@ -12,7 +12,7 @@ galleryApp.controller('GalleryController', ['$scope', 'getLocation', function($s
 	return function(name) {
 	$http.get('/image/' + name)
 		.success(function(data, status, headers, config) {
-			console.log('Success: ' + status);
+			console.log('Latitude:' + data.latitude + '; Longitude:' + data.longitude);
 		})
 		.error(function(data, status, headers, config) {
 			console.log('Error: ' + status);
