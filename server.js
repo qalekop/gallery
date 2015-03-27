@@ -65,7 +65,7 @@ app.get('/image/:id', function(req, res) {
   var id = req.params.id;
   console.log('*** request for ' + id);
   var img = images.filter(function(image, i){ return image.name == id});
-  if (img.length == 1) {
+  if (img.length == 1 && img[0].latitude) {
 	var im = img[0];
 	console.log('Found: ' + im.latitude + '/' + im.longitude);
 	res.json({latitude: im.latitude, longitude: im.longitude});
