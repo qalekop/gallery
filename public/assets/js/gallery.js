@@ -3,6 +3,7 @@
 var galleryApp = angular.module("Gallery", []);
 
 galleryApp.controller('GalleryController', ['$scope', 'getLocation', function($scope, getLocation) {
+	$scope.name = 'No image selected';
     $scope.imageName = function(name) {
 		getLocation(name, $scope);
     };

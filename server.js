@@ -46,7 +46,7 @@ files.forEach(function(file, i) {
 async.each(images
   , function(item, callback) {
     if (item.waitForName) {
-      gm.reverseGeocode(item.latitude + ',' + item.longitude, function(err, data){item.endroit = data.results[2].formatted_address; callback()});
+      gm.reverseGeocode(item.latitude + ',' + item.longitude, function(err, data){item.endroit = data.results[2].formatted_address; callback();});
     } else {
       callback();
     }
