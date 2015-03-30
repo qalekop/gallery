@@ -7,16 +7,15 @@ node.js playground. By now demonstrates the following:
 * show image gallery (mocked as Polaroid shots) together with city names;
 * image click should reveal the corresponding Google map.
 
-# Technologies used
-By now, the following:
+By now, the following themes are covered:
 - _node.js_ along with _express_;
-- _exif-parser_;
-- _jade_ template engine;
-- _stylus/nib_ css preprocessors;
-- _async_ package to handle asycnc jobs;
+- _exif-parser_ https://www.npmjs.com/package/exif-parser;
+- _jade_ template engine http://jade-lang.com/;
+- _stylus/nib_ css preprocessors http://learnboost.github.io/stylus/;
+- _async_ package to handle asycnc jobs https://www.npmjs.com/package/async;
 - _angular_ for in-browser level.
 
-#To-dos
-[x] render google map on image click;
-[x] continue playing with _redis_;
+To-dos:
+- [ ] render google map on image click;
+- [ ] continue playing with _redis_;
 
