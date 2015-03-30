@@ -81,12 +81,12 @@ figcaption
   padding 6px 8px 10px 8px; /*size of the frame*/
   background linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%)
   box-shadow 4px 4px 8px -4px rgba(0, 0, 0, .75)
-  transform rotate(-1deg)
+  transform rotate(2deg)
   -webkit-backface-visibility:hidden; /*prevent rotated text in the caption being jagged in Chrome and Safari*/
 
 /***Rotate each even numbered image 2 degrees clockwise***/
 #polaroid li:nth-child(even) figure
-  transform rotate(2deg)
+  transform rotate(-1deg)
   /*because the image is rotated the opposite way, the drop-shadow needs moving to the other side of the image*/
   box-shadow -4px 4px 8px -4px rgba(0, 0, 0, .75)
  
