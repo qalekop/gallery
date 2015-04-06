@@ -4,11 +4,11 @@ html(ng-app='Gallery')
     title #{title}
     link(rel='stylesheet', href='/assets/css/gallery.css')
     script(src='/assets/js/angular.min.js')
-    script(src='/assets/js/gallery.js')
+    script(src='/assets/js/gallery-1.js')
   body
     header
       h1 #{title}
-    .container(ng-controller='GalleryController')
+    .container()
       .main-content
         block content
       footer
