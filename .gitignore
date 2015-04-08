@@ -1,2 +1,5 @@
 node_modules/*
 public/assets/css/gallery.css
+.idea/*
+gallery.iml
+*.orig

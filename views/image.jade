@@ -1,6 +1,6 @@
 li(gallery-item=image.name)
-  figure(ng-show = 'showImage == "' + image.name + '"')
+  figure(ng-show = 'true')
     img(src="/assets/gallery/" + image.name, alt=image.endroit, title=image.endroit, width=image.width, height=image.height)
     figcaption #{image.endroit}
-  div(ng-hide = 'showImage == "' + image.name + '"')
-    | Hello from #{image.endroit}&gt;{{showImage}}&lt;
+  div(ng_show = 'false')
+    | Hello from #{image.endroit}

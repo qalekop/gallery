@@ -8,7 +8,7 @@ html(ng-app='Gallery')
   body
     header
       h1 #{title}
-    .container()
+    .container(ng-controller='GalleryController')
       .main-content
         block content
       footer

@@ -1,18 +1,20 @@
 angular
     .module("Gallery", [])
+    .controller('GalleryController', ['$scope', function($scope){
+        $scope.showImage = '*';
+    }])
     .directive('galleryItem', function(){
-        var showImage = true;
         return {
             restrict: 'A'
-            , scope: {showImage: '@'}
              , link: function(scope, element, attr) {
-                console.log('link  for ' + attr.galleryItem);
+                var name = attr.galleryItem;
+                console.log('link  for ' + name);
                 element.on('click', function() {
-                    showImage = !showImage;
-                    scope.showImage = attr.galleryItem;
-                    console.log('Clicked: ' + scope.showImage);
+                    console.log('Clicked: ' + name);
+                    element.find('figure').toggleClass('ng-hide');
+                    element.find('div').toggleClass('ng-hide');
                 });
-                //$scope.showImage = '';
             }
         }
-});
+    })
+;
