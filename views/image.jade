@@ -1,6 +1,6 @@
 li(gallery-item=image.name)
-  figure(ng-show = 'true')
-    img(src="/assets/gallery/" + image.name, alt=image.endroit, title=image.endroit, width=image.width, height=image.height)
+  figure
+    img(src="/assets/gallery/" + image.name, alt=image.endroit, title=image.endroit, width=image.width, height=image.height, ng-show = 'true')
+    div(ng_show = 'false' style='min-width:' + image.width + 'px; min-height:' + image.height + 'px;')
+      | Hello from #{image.endroit}
     figcaption #{image.endroit}
-  div(ng_show = 'false')
-    | Hello from #{image.endroit}

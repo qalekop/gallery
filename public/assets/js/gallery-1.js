@@ -11,7 +11,7 @@ angular
                 console.log('link  for ' + name);
                 element.on('click', function() {
                     console.log('Clicked: ' + name);
-                    element.find('figure').toggleClass('ng-hide');
+                    element.find('img').toggleClass('ng-hide');
                     element.find('div').toggleClass('ng-hide');
                 });
             }
