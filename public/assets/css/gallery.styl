@@ -4,7 +4,7 @@
 @import 'nib'
 
 /*
- * Grab a custom font from Google
+ * Grab custom fonts from Google
  */
 @import url('http://fonts.googleapis.com/css?family=Quicksand')
 @import url('http://fonts.googleapis.com/css?family=Reenie+Beanie')
@@ -48,10 +48,9 @@ header
 
 .main-content
   float left
-  /* width 300px */
 
   p
-    margin-bottom 20px	
+    margin-bottom 20px
 
 p
   line-height 1.8
@@ -61,18 +60,10 @@ footer
   padding-top 5px
   font-size 13px
 
-#map 
-	float: left
-	margin: 20px
-
-/* my staff */  
+/* my staff */
 figure
 figcaption
   display block
-
-.map
-  background-color #ffdead
-  border 1px solid red
 
 #polaroid
   padding 20px 20 px
@@ -83,21 +74,19 @@ figcaption
     margin-top 50px
 
 #polaroid li figure
-  padding 6px 8px 10px 8px; /*size of the frame*/
+  padding 6px 8px 10px 8px;
   background linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%)
   box-shadow 4px 4px 8px -4px rgba(0, 0, 0, .75)
   transform rotate(2deg)
-  -webkit-backface-visibility:hidden; /*prevent rotated text in the caption being jagged in Chrome and Safari*/
+  -webkit-backface-visibility:hidden; /* prevent rotated text in the caption being jagged in Chrome and Safari */
 
-/***Rotate each even numbered image 2 degrees clockwise***/
 #polaroid li:nth-child(even) figure
   transform rotate(-1deg)
-  /*because the image is rotated the opposite way, the drop-shadow needs moving to the other side of the image*/
   box-shadow -4px 4px 8px -4px rgba(0, 0, 0, .75)
  
 #polaroid figcaption
   text-align center
-  font-family 'Reenie Beanie', cursive /* Reenie Beanie is available through Google Webfonts */
+  font-family 'Reenie Beanie', cursive
   font-size 1.3em
   color #454f40
   letter-spacing 0.09em
@@ -106,16 +95,14 @@ figure:before
   content ''
   display block
   position absolute
-  left 5px /*postion from the left side of the frame (positive value move the tape right, negative moves it left)*/
-  top -15px /*position from the top of the frame (positive move it above the frame, negative below)*/
-  width 75px /*width of the tape*/
-  height 25px /*height of the tape*/
-  background-color rgba(222,220,198,0.7) /*colour of the tape, use rgba to make it slightly transparent*/
-  /*rotate the tape 12 degrees anti-clockwise*/
+  left 5px
+  top -15px
+  width 75px
+  height 25px
+  background-color rgba(222,220,198,0.7)
   transform rotate(-12deg)
 
-/** The tape for the even numbered images needs to be rotated the opposite way, as the images are, and positioned on the other side of the frame, I've also changed the width slightly **/
-li:nth-child(even) figure:before 
+li:nth-child(even) figure:before
   left 250px
   top -15px
   width 55px

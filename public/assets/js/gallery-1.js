@@ -8,10 +8,23 @@ angular
             var show = function(text) {
               element.find('div').text(text);
             };
+            var openMap = function(latitude, longitude) {
+                var latLng = new google.maps.LatLng(latitude, longitude);
+                var m = new google.maps.Map(element.find('div')[0], {
+                    zoom: 8,
+                    center: latLng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                new google.maps.Marker({
+                    map: m,
+                    position: latLng,
+                    clickable: false
+                });
+            };
             $http.get('/image/' + name)
                 .success(function(data, status, headers, config) {
                     console.log('Latitude:' + data.latitude + '; Longitude:' + data.longitude);
-                    show(data.latitude + '/' + data.longitude);
+                    openMap(data.latitude, data.longitude);
                 })
                 .error(function(data, status, headers, config) {
                     console.log('Error: ' + status);
@@ -19,7 +32,7 @@ angular
                 });
         }
     }])
-    .directive('galleryItem', function(getLocation){
+    .directive('galleryItem', ['getLocation', function(getLocation){
         var isMapVisible = false;
         return {
             restrict: 'A'
@@ -34,5 +47,5 @@ angular
                 });
             }
         }
-    })
+    }])
 ;
