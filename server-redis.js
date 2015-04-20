@@ -28,7 +28,6 @@ var fnPrefix = __dirname + '/public/assets/gallery';
 var files = fs.readdirSync(fnPrefix);
 var file
     , exif
-    , coords
     , width
     , height;
 
@@ -47,11 +46,11 @@ files.forEach(function(file, i) {
 async.each(images
   , function(item, callback) {
     if (item.waitForName) {
-      gm.reverseGeocode(item.latitude + ',' + item.longitude, function(err, data){
+      gm.reverseGeocode(item.latitude + ',' + item.longitude, function(err, data) {
+        item.endroit = data.results[2].formatted_address;
         redis.hmset(item.name, {
           latitude: item.latitude
-          , longitude: item.longitude
-          , endroit: data.results[2].formatted_address}, function(err, obj) {callback();}
+          , longitude: item.longitude}, function() {callback();}
         );
       });
     } else {
