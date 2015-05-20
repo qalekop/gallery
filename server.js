@@ -53,7 +53,7 @@ async.each(images
   }
   , function(err) {
     console.log('over');
-    app.listen(3000, function() {console.log('listening...');});
+    app.listen(process.env.PORT || 3000, function() {console.log('listening...');});
   }
 );
 /////////////////////////////
